@@ -39,9 +39,20 @@ export default {
     a {
         display:block;
         padding:0 20px;
-        height:60px;
+        height:60px;    
         box-sizing: border-box;
         line-height: 60px;
+        &:hover {
+            border-bottom: 5px solid #409eff;
+            color: #409eff
+        }
+    }
+    .nuxt-link-exact-active {
+    color:#fff;
+    background-color: #409eff;
+    &:hover {
+        color: #fff
+    }
     }
 }
 .login {

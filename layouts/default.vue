@@ -2,6 +2,7 @@
   <div>
     <Header></Header>
     <nuxt />
+    <Demo></Demo>
     <Footer></Footer>
   </div>
 </template>
@@ -9,6 +10,7 @@
 <script>
 import Header from '@/components/header.vue'
 import Footer from '@/components/footer.vue'
+import Demo from '@/components/demo.vue'
 export default {
     data () {
       return {
@@ -16,7 +18,7 @@ export default {
       }
     },
     components:{
-      Header,Footer
+      Header,Footer,Demo
     }
 }
 </script>
