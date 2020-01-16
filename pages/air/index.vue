@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <nuxt />
-  </div>
+  <div class="air">机票</div>
 </template>
 
 <script>
 export default {
-  
+
 }
 </script>
 

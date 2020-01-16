@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <nuxt />
-  </div>
+  <div class="hotel">酒店</div>
 </template>
 
 <script>
 export default {
-  
+
 }
 </script>
 
