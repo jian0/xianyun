@@ -62,6 +62,9 @@ export default {
     }
   }
 }
+.navs {
+  background-color: gray;
+}
 .things {
   background-color: pink;
 }
