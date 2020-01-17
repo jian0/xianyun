@@ -2,7 +2,7 @@
   <div class="index">
     <el-carousel>
       <el-carousel-item v-for="(item,index) in photoList" :key="index">
-        <div class="img" :style="`background-image:url(${item.url})`"></div>
+        <div class="img" :style="`background-image:url(${$axios.defaults.baseURL}${item.url})`"></div>
         <!-- <img :src="item" alt /> -->
       </el-carousel-item>
     </el-carousel>
@@ -45,18 +45,18 @@ export default {
         // "http://157.122.54.189:9095/assets/images/th01.jfif",
         // "http://157.122.54.189:9095/assets/images/th02.jfif",
         // "http://157.122.54.189:9095/assets/images/th03.jfif"
-        {
-          url:'http://157.122.54.189:9095/assets/images/th01.jfif'
-        },
-        {
-          url:'http://157.122.54.189:9095/assets/images/th02.jfif'
-        },
-        {
-          url:'http://157.122.54.189:9095/assets/images/th03.jfif'
-        },
-        {
-          url:'http://157.122.54.189:9095/assets/images/th04.jfif'
-        }
+        // {
+        //   url:'http://157.122.54.189:9095/assets/images/th01.jfif'
+        // },
+        // {
+        //   url:'http://157.122.54.189:9095/assets/images/th02.jfif'
+        // },
+        // {
+        //   url:'http://157.122.54.189:9095/assets/images/th03.jfif'
+        // },
+        // {
+        //   url:'http://157.122.54.189:9095/assets/images/th04.jfif'
+        // }
       ],
       options: [
         // 搜索框tab选项
@@ -85,7 +85,7 @@ export default {
       url: "/scenics/banners"
     }).then(res => {
       const { data } = res.data;
-      this.banners = data;
+      this.photoList = data;
     });
   },
   methods: {
