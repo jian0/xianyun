@@ -14,6 +14,7 @@
 
     <el-button class="submit" type="primary" @click="handleLoginSubmit(form)">登录</el-button>
   </el-form>
+
 </template>
 
 <script>
@@ -23,9 +24,6 @@ export default {
       if (value === "") {
         callback(new Error("请输入用户名"));
       } else {
-        //   if (this.form.username !== '') {
-        //     this.$refs.form.validateField('username');
-        //   }
         if (!/^1[3-9]\d{9}$/.test(value)) {
           callback(new Error("用户名输入不合法"));
         }
@@ -49,23 +47,24 @@ export default {
     // 提交登录
     handleLoginSubmit(form) {
       console.log(this.form);
-      this.$refs.form.validate(async(valid) => {
-          if (valid) {
-            // alert('submit!');
-            let res = await this.$axios({
-                url:'/accounts/login',
-                method:'POST',
-                data:this.form
-            })
-            console.log(res);
-            if(res.status === 200){
-                this.$router.push('/')
-            }
-          } else {
-            console.log('error submit!!');
-            return false;
+      this.$refs.form.validate(async valid => {
+        if (valid) {
+          // alert('submit!');
+          let res = await this.$axios({
+            url: "/accounts/login",
+            method: "POST",
+            data: this.form
+          });
+          console.log(res);
+          if (res.status === 200) {
+            this.$store.commit("user/setUserInfo", res.data);
+            this.$router.push("/");
           }
-        });
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
     }
   }
 };
