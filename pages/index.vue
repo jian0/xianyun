@@ -80,13 +80,17 @@ export default {
       currentOption: 0 // 当前选中的选项
     };
   },
-  mounted() {
-    this.$axios({
+  async mounted() {
+    // this.$axios({
+    //   url: "/scenics/banners"
+    // }).then(res => {
+    //   const { data } = res.data;
+    //   this.photoList = data;
+    // });
+    let res = await this.$axios({
       url: "/scenics/banners"
-    }).then(res => {
-      const { data } = res.data;
-      this.photoList = data;
     });
+    this.photoList = res.data.data
   },
   methods: {
     handleOption(index) {
